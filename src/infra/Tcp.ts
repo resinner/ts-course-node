@@ -9,10 +9,10 @@ import { middlewares } from "app/middlewares";
 
 // Оголошуємо клас Tcp, який реалізує інтерфейс IService
 export class Tcp implements IService {
-  private static instance: Tcp; // Посилання на єдиний екземпляр класу
+  private static instance: Tcp; // Ссылка на единственный экземпляр класса
 
-  private routePrefix = "/api"; // Префікс для маршрутів API
-  public server = express(); // Екземпляр Express.js
+  private routePrefix = "/api"; // Префикс для маршрутов API
+  public server = express(); // Экземпляр Express.js
 
   // Конструктор, що реалізує шаблон Singleton для класу Tcp
   constructor() {

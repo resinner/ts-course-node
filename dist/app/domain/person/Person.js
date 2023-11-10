@@ -17,6 +17,7 @@ const class_validator_1 = require("class-validator");
 const CreatePerson_dto_1 = require("./CreatePerson.dto");
 const ApiResponse_1 = require("helpers/ApiResponse");
 const ApiError_1 = require("helpers/ApiError");
+const HTTPResponseLogger_1 = require("../../middlewares/HTTPResponseLogger");
 const storeData = [];
 let Person = class Person {
     async getAll() {
@@ -34,11 +35,6 @@ let Person = class Person {
         }
         return new ApiResponse_1.ApiResponse(true, person);
     }
-    //   @Post()
-    //   async setPerson(@Body() body: IPerson) {
-    //     storeData.push(body);
-    //     return new ApiResponse(true, "Person successfully created");
-    //   }
     async setPerson(body) {
         // validate the body using class-validator
         const errors = await (0, class_validator_1.validate)(body);
@@ -56,6 +52,7 @@ let Person = class Person {
 };
 __decorate([
     (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.UseAfter)(HTTPResponseLogger_1.HTTPResponseLogger),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

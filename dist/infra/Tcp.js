@@ -13,8 +13,8 @@ const middlewares_1 = require("app/middlewares");
 class Tcp {
     // Конструктор, що реалізує шаблон Singleton для класу Tcp
     constructor() {
-        this.routePrefix = "/api"; // Префікс для маршрутів API
-        this.server = (0, express_1.default)(); // Екземпляр Express.js
+        this.routePrefix = "/api"; // Префикс для маршрутов API
+        this.server = (0, express_1.default)(); // Экземпляр Express.js
         // Якщо екземпляр ще не створено, зберігаємо посилання на поточний екземпляр
         if (!Tcp.instance) {
             Tcp.instance = this;
